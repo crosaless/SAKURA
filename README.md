@@ -1,22 +1,14 @@
-# Proyecto integrador Taller de Programacion avanzada
+# Proyecto correspondiente a la materia "Seminario Integrador"
 
-Ecommerce a modo de trabajo integrador para la materia taller de programacion avanzada
+Ecommerce a modo de trabajo integrador para la materia Seminario Integrador
 
-## Definir tematica del Market Place
+## Temática del Market Place
 
 El ecommerce ofrecera ropa informal, y sera orientado a adolescentes y jovenes.
 
 ## Integrantes del grupo:
-
-    - Santiago Ruiz Cucchiarelli
-    - Zacarías Garcia
     - Marcio Palazzo
-    - Emmanuel Guerreiro
-
-## Videos
-
-* Frontend https://www.youtube.com/watch?v=4Gh1CqAzm7k
-* Backend: https://www.youtube.com/watch?v=UDub9UoSJcQ
+    - Cristian Rosales
 
 ## Buscar inspiración en referentes del mercado
 
