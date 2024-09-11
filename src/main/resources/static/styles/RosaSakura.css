@@ -1,0 +1,151 @@
+body {
+    background-color: #000000;
+    color: #ffa7e1;
+    font-family: 'Open Sans', sans-serif;
+}
+header {
+    background-color: #1a1a1a;
+    border-bottom: 1px solid #333333;
+}
+
+.navbar-brand, .nav-link {
+    color: #ff69b4 !important;
+}
+
+.navbar-brand img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.nav-link:hover {
+    color: #fff !important;
+}
+.btn.btn-primary {
+    border: none;
+    color: #000;
+    background-color: #ffa7e1;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s ease;
+}
+
+.btn.btn-primary:after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    direction: rtl;
+    z-index: -1;
+    box-shadow:
+        -7px -7px 20px 0px #fff9,
+        -4px -4px 5px 0px #fff9,
+        7px 7px 20px 0px #0002,
+        4px 4px 5px 0px #0001;
+    transition: all 0.3s ease;
+}
+
+.btn.btn-primary:hover {
+    color: #000;
+}
+
+.btn.btn-primary:hover:after {
+    left: auto;
+    color:#ffa7e1;
+    right: 0;
+    width: 100%;
+}
+
+.btn.btn-primary:active {
+    top: 2px;
+    color: ff69b4;
+}
+
+h1, h3, h5 {
+    color: #ff69b4;
+}
+
+.form-control {
+    color: #000000;
+
+    border: none;
+    border-radius: 5px;
+}
+
+.form-control::placeholder {
+    color: #efbaba;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 5px #ff69b4;
+}
+
+.form-select:focus {
+    box-shadow: 0 0 5px #ff69b4;
+}
+
+.footer {
+  background-color: #343a40;
+  color: #e0e0e0;
+  position: fixed;  /* Posicionamiento fijo */
+  bottom: 0;       /* Asignamos la parte inferior */
+  left: 0;         /* Asignamos la izquierda */
+  width: 100%;     /* Ocupamos todo el ancho */
+  padding: 20px;
+  text-align: center; /* Centramos el texto */
+}
+.footer-copyright.py-3 {
+    
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    background-color: #343a40;
+    color: #e0e0e0;
+}
+
+.breadcrumb, .detalle {
+    margin-top: 20px;
+}
+
+.btn-success {
+    background-color: #ff69b4;
+    border-color: #ff69b4;
+}
+
+.btn-outline-danger {
+    border-color: #ff69b4;
+    color: #ff69b4;
+}
+
+.btn-outline-danger:hover {
+    background-color: #ff69b4;
+    color: #fff;
+}
+
+.card {
+    margin: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    transition: transform 0.2s;
+    background-color: #333132
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    max-height: 200px;
+    object-fit: cover;
+}
+
+.table{
+    color: #feffff;
+}
+.table-striped>tbody>tr:nth-of-type(odd)>* {
+    --bs-table-accent-bg: #1f1d1e00;
+    color: #f2f2f2;
+}

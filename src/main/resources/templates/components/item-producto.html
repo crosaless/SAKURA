@@ -1,0 +1,68 @@
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<div class="producto-item">
+    <img th:src="${producto.imagen}" alt="Imagen del producto" class="producto-imagen">
+    <p class="producto-nombre" th:text="${producto.nombre}"></p>
+    <a th:href="@{/admin/producto/editar/{id}(id=${producto.id})}" class="boton-edicion">
+        <span class="icono-edicion">✏️</span>
+    </a>
+</div>
+
+
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4; /* Color de fondo para el cuerpo */
+        }
+
+        .producto-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            width:50vw;
+            background-color:antiquewhite;
+            border: 2px solid black; /* Borde negro */
+            padding: 10px 20px; /* Espacio alrededor del contenido */
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .producto-imagen {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .producto-nombre {
+            font-size: 18px;
+            margin: 0;
+        }
+        .boton-edicion {
+            background-color: #f4f4f4;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            position: absolute;
+            right: 0;
+        }
+
+        .boton-edicion:hover {
+            background-color: #e0e0e0;
+        }
+
+        .icono-edicion {
+            margin-left: 10px;
+        }
+    </style>
+</html>
+
+
+
+
+
+
+

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Ecommerce</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+    <link th:href="@{/styles/estilos.css}" rel="stylesheet" />
+    <script type="text/javascript" th:src="@{/js/server_domain.js}"></script>
+    <script type="text/javascript" th:src="@{/js/login.js}"></script>
+
+  </head>
+
+  <body>
+    <header><nav th:replace="components/navbar-admin-sistema :: nav_bar"></header>
+    <main class="d-flex flex-column align-items-center">
+      <section class="d-flex flex-column w-75">
+        <h1>Crear Usuario</h1>
+        <form
+        >
+          <div class="mb-3">
+            <label for="name" class="form-label">Nombre de usuario</label>
+            <input
+              type="text"
+              class="form-control"
+              id="fieldUsername"
+              aria-describedby="productName"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="fieldEmail" class="form-label">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="fieldEmail"
+              aria-describedby="emailHelp"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"
+              >Contraseña</label
+            >
+            <input
+              type="password"
+              class="form-control"
+              id="exampleInputPassword1"
+            />
+          </div>
+          <h3>Asignar Rol</h3>
+          <div
+            th:object="${roles}"
+            th:each="rol : ${roles}"
+          >
+            <div>
+            <label><input type="checkbox" th:class="roles"  th:nombre="${rol.name}" th:text="${rol.name}" /></label><br />
+             </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary" th:onclick="|darAltaUsuario()|">Crear</button>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <!-- place footer here -->
+    </footer>
+  </body>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+      integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+      crossorigin="anonymous"
+    ></script>
+  
+  <script type="text/javascript" th:src="@{/js/signin.js}"></script>
+</html>

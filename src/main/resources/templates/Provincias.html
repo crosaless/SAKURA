@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Sakura - Provincias</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link th:href="@{/styles/estilos.css}" rel="stylesheet">
+    <link th:href="@{/styles/RosaSakura.css}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans" rel="stylesheet" type="text/css">
+    <style>
+    .form-control {
+        max-width: 300px; 
+    }
+    .btn {
+        padding: 0.375rem 0.75rem; 
+    }
+    .d-flex .btn-sm {
+        font-size: 0.875rem; 
+    }
+    .me-3 {
+        margin-right: 1rem; 
+    }
+    .me-2 {
+        margin-right: 0.5rem; 
+    }
+</style>
+</head>
+<body>
+    <nav th:replace="components/navbar-admin :: nav_bar"></nav>
+    <main>
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center my-3">
+                <h3>Provincias</h3>
+                <div class="d-flex align-items-center my-2">
+                    <input type="text" id="searchInput" class="form-control me-3" placeholder="Buscar por nombre">
+                    <a th:href="@{/provincia/admin/nueva}" class="btn btn-success btn-sm me-2">Añadir nueva provincia</a>
+                    <a th:href="@{/localidad/admin/disponibles}" class="btn btn-success btn-sm">Administrar localidades</a>
+                </div>
+            </div>
+            <div>
+                <p th:text="'Número de provincias disponibles: ' + ${#lists.size(provincias)}"></p>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nombre de la provincia</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="provinciasTable">
+                        <tr th:if="${#lists.isEmpty(provincias)}">
+                            <td colspan="4">No hay provincias disponibles</td>
+                        </tr>
+                        <tr th:each="provincia : ${provincias}">
+                            <td th:text="${provincia.nombreProvincia}">Nombre de la Provincia</td>
+                            <td>
+                                <a th:href="@{/provincia/admin/update/{id}(id=${provincia.idProvincia})}" class="btn btn-primary btn-sm">Ver detalles</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    <footer class="page-footer text-center font-small mt-4 wow fadeIn"></footer>
+    <script type="text/javascript" th:src="@{/js/searchByName.js}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+    <script type="text/javascript" th:src="@{/js/BarraBusquedaProvincias.js}"></script>
+    <script type="text/javascript" th:src="@{/js/login.js}"></script>
+    <script type="text/javascript" th:src="@{/js/server_domain.js}"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+div {
+  height: 10vh;
+  align-content: space-around;
+}
+
+a{
+  text-decoration: none; 
+  float: right;
+}
+

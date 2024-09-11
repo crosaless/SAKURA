@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Administración del Sistema</title>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+  <link th:href="@{/styles/menu-administrar.css}" rel="stylesheet" />
+  <script type="text/javascript" th:src="@{/js/server_domain.js}"></script>
+  <script type="text/javascript" th:src="@{/js/login.js}"></script>
+
+</head>
+
+<body>
+
+  <nav class="sidebar">
+    
+    <div class="text" style="display: flex; align-items: center;">
+      <img th:src="@{/images/rueditapng.png}" alt="img" width="70" height="40">
+        <span style="margin-left: 32%;">Administrar</span>
+    </div>
+    <ul>
+      <li>
+        <a class="btn-users">Usuarios
+          <span class="fas fa-caret-down first"></span>
+        </a>
+        <ul class="feat-show" id="usuarios">
+          <li><a th:href="@{/sistema/administracion/crear/usuario}">Alta de Usuarios</a></li>
+          <li><a id="modUsuario">Modificar Usuario</a></li>
+        </ul>
+      </li>
+      <li>
+        <a class="btn-roles">Roles
+          <span class="fas fa-caret-down second"></span>
+        </a>
+        <ul class="serv-show" id="roles">
+          <li><a th:href="@{/sistema/administracion/crear/rol}">Alta de Rol</a></li>
+          <li><a id="modRol">Modificar Rol</a></li>
+        </ul>
+      </li>
+      <li>
+        <a class="btn-vistas">Vistas
+          <span class="fas fa-caret-down third"></span>
+        </a>
+        <ul class="serv-show1" id="vistas">
+          <li><a th:href="@{/sistema/administracion/crear/vista}">Alta de Vista</a></li>
+          <li><a id="modVista">Modificar Vista</a></li>
+        </ul>
+      </li>
+
+      <li><a th:onclick="|cerrarSesion()|">Cerrar Sesión</a></li>
+      <!--
+            <li><a href="#">Overview</a></li>
+            <li><a href="#">Shortcuts</a></li>
+            <li><a href="#">Feedback</a></li>
+            -->
+    </ul>
+  </nav>
+
+
+  <script>
+    $('.btn').click(function () {
+      $(this).toggleClass("click");
+      $('.sidebar').toggleClass("show");
+    });
+    $('.btn-users').click(function () {
+      $('nav ul #usuarios').toggleClass("show");
+      $('nav ul .first').toggleClass("rotate");
+    });
+    $('.btn-roles').click(function () {
+      $('nav ul #roles').toggleClass("show");
+      $('nav ul .second').toggleClass("rotate");
+    });
+    $('.btn-vistas').click(function () {
+      $('nav ul #vistas').toggleClass("show");
+      $('nav ul .third').toggleClass("rotate");
+    });
+    $('nav ul li').click(function () {
+      $(this).addClass("active").siblings().removeClass("active");
+    });
+    $('#modUsuario').click(function () {
+      let username = prompt("Ingrese el nombre de usuario");
+      if (username != '' && username != null) {
+        window.location.href = location.href + "/editar/usuario?username=" + username;
+      }
+      else {
+        alert("El nombre de usuario no puede ser vacio");
+      }
+    });
+    $('#modRol').click(function () {
+      let name = prompt("Ingrese nombre del Rol a modificar");
+      if (name != '' && name != null) {
+        window.location.href = location.href + "/editar/rol?name=" + name;
+      } else {
+        alert("El nombre de Rol no puede ser vacio");
+      }
+    });
+    $('#modVista').click(function () {
+      let name = prompt("Ingrese nombre de la Vista a modificar");
+      if (name != '' && name != null) {
+        window.location.href = location.href + "/editar/vista?name=" + name;
+      } else {
+        alert("El nombre de vista no puede ser vacio");
+      }
+    });
+  </script>
+</body>
+
+
+</html>

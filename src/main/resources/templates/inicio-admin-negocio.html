@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+   <meta charset="utf-8">
+   <title>Administración del Sistema</title>
+
+   <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+   <link th:href="@{/styles/menu-administrar.css}" rel="stylesheet" />
+   <script type="text/javascript" th:src="@{/js/server_domain.js}"></script>
+   <script type="text/javascript" th:src="@{/js/login.js}"></script>
+
+
+</head>
+
+<body>
+
+   <nav class="sidebar">
+      <div class="text" style="display: flex; align-items: center;">
+         <img th:src="@{/images/rueditapng.png}" alt="img" width="70" height="40">
+         <span style="margin-left: 32%;">Administrar</span>
+      </div>
+      <ul>
+         <li>
+            <a class="btn-productos">Productos
+               <span class="fas fa-caret-down first"></span>
+            </a>
+            <ul class="feat-show" id="productos">
+               <li><a th:href="@{/productos/nuevo}">Alta</a></li>
+               <li><a id="modProducto">Modificar</a></li>
+               <li><a th:href="@{/productos/listado}">Ver lista</a></li>
+               <li><a id="stockProducto">Actualizar stock</a></li>
+            </ul>
+         </li>
+         <li>
+            <a class="btn-marcas">Marcas
+               <span class="fas fa-caret-down second"></span>
+            </a>
+            <ul class="feat-show" id="marcas">
+               <li><a th:href="@{/marcas/admin/nueva}">Alta</a></li>
+               <li><a th:href="@{/marcas/admin}">Modificar</a></li>
+            </ul>
+         </li>
+         <li>
+            <a class="btn-categorias">Categoria
+               <span class="fas fa-caret-down third"></span>
+            </a>
+            <ul class="feat-show" id="categorias">
+               <li><a th:href="@{/categoria/nuevo}">Alta</a></li>
+               <li><a id="modCategoria">Modificar</a></li>
+            </ul>
+         </li>
+         <li>
+            <a class="btn-ventas">Ventas
+               <span class="fas fa-caret-down fourth"></span>
+            </a>
+            <ul class="serv-show" id="ventas">
+               <li><a th:href="@{/admin/ventas}">Ver lista</a></li>
+            </ul>
+         </li>
+         <li>
+            <a class="btn-provincias">Provincias
+               <span class="fas fa-caret-down fifth"></span>
+            </a>
+            <ul class="serv-show" id="provincias">
+               <li><a th:href="@{/provincia/admin/nueva}">Alta</a></li>
+               <li><a id="modProvincia">Modificar</a></li>
+               <li><a  th:href="@{/provincia/admin/disponibles}">Ver lista de provincias</a></li>
+
+            </ul>
+
+         </li>
+         <li>
+            <a class="btn-localidades">Localidades
+               <span class="fas fa-caret-down sixth"></span>
+            </a>
+            <ul class="serv-show" id="localidades">
+               <li><a th:href="@{/localidad/admin/nueva}">Alta</a></li>
+               <li><a id="modLocalidad">Modificar</a></li>
+               <li><a th:href="@{/localidad/admin/disponibles}">Ver lista de localidades</a></li>
+            </ul>
+         </li>
+         <li>
+            <a class="btn-reportes">Reportes
+               <span class="fas fa-caret-down seventh"></span>
+            </a>
+            <ul class="serv-show" id="reportes">
+               <li><a id="reportes">Ir a reportes</a></li>
+            </ul>
+         </li>
+
+         <li><a th:onclick="|cerrarSesion()|">Cerrar Sesión</a></li>
+      </ul>
+   </nav>
+   <div class="content">
+      <div class="header" style="font-style: oblique; color: white; font-size: 200px;">
+
+      </div>
+      <!--<img src="C:\Users\marci\OneDrive\Imágenes\Sin título.png" alt="img" width="800px" height="300px">-->
+   </div>
+   <script>
+      /*
+      $('.btn').click(function(){
+          $(this).toggleClass("click");
+          $('.sidebar').toggleClass("show");
+      });
+      */
+      $('.btn-productos').click(function () {
+         $('nav ul #productos').toggleClass("show");
+         $('nav ul .first').toggleClass("rotate");
+      });
+      $('.btn-marcas').click(function () {
+         $('nav ul #marcas').toggleClass("show");
+         $('nav ul .second').toggleClass("rotate");
+      });
+      $('.btn-categorias').click(function () {
+         $('nav ul #categorias').toggleClass("show");
+         $('nav ul .third').toggleClass("rotate");
+      });
+      $('.btn-ventas').click(function () {
+         $('nav ul #ventas').toggleClass("show");
+         $('nav ul .fourth').toggleClass("rotate");
+      });
+      $('.btn-reportes').click(function () {
+         $('nav ul #reportes').toggleClass("show");
+         $('nav ul .seventh').toggleClass("rotate");
+      });
+      $('.btn-provincias').click(function () {
+         $('nav ul #provincias').toggleClass("show");
+         $('nav ul .fifth').toggleClass("rotate");
+      });
+      $('.btn-localidades').click(function () {
+         $('nav ul #localidades').toggleClass("show");
+         $('nav ul .sixth').toggleClass("rotate");
+      });
+      $('nav ul li').click(function () {
+         $(this).addClass("active").siblings().removeClass("active");
+      });
+      $('#usuarios').click(function () {
+         let username = prompt("Ingrese el nombre de usuario");
+         if (username != '' && username != null) {
+            window.location.href = location.href + "/editar/usuario?username=" + username;
+         }
+         else {
+            alert("El nombre de usuario no puede ser vacio");
+         }
+      });
+      $('#roles').click(function () {
+         let name = prompt("Ingrese nombre del Rol a modificar");
+         if (name != '' && name != null) {
+            window.location.href = location.href + "/editar/rol?name=" + name;
+         } else {
+            alert("El nombre de Rol no puede ser vacio");
+         }
+      });
+      $('#vistas').click(function () {
+         let name = prompt("Ingrese nombre de la Vista a modificar");
+         if (name != '' && name != null) {
+            window.location.href = location.href + "/editar/vista?name=" + name;
+         } else {
+            alert("El nombre de vista no puede ser vacio");
+         }
+      });
+      $('#modProducto').click(function () {
+      let id = prompt("Ingrese el ID del producto");
+      if (id != '' && id != null) {
+        window.location.href = domain + "/admin/producto/editar/" + id;
+      }
+      else {
+        alert("El ID del Producto no puede ser vacio");
+      }
+    });
+    $('#stockProducto').click(function () {
+      let id = prompt("Ingrese el ID del producto");
+      if (id != '' && id != null) {
+        window.location.href = domain + "/admin/producto/editar/stock?id=" + id;
+      }
+      else {
+        alert("El ID del Producto no puede ser vacio");
+      }
+    });
+    $('#modMarca').click(function () {
+      let id = prompt("Ingrese ID de la marca");
+      if (id != '' && id != null) {
+        window.location.href = location.href + "marcas/admin/update/" + id;
+      }
+      else {
+        alert("El ID de Marca no puede ser vacio");
+      }
+    });
+    $('#modCategoria').click(function () {
+      let id = prompt("Ingrese ID de la categoria");
+      if (id != '' && id != null) {
+        window.location.href = domain + "/admin/categoria/editar?id="+id;
+      }
+      else {
+        alert("El ID de Categoria no puede ser vacio");
+      }
+    });
+    $('#reportes').click(function () {
+      window.location.href = domain + "/admin/reportes/opciones";
+    });
+    $('#modLocalidad').click(function () {
+      let cp = prompt("Ingrese Codigo postal de la localidad");
+      if (cp != '' && cp != null) {
+        window.location.href = domain + "/localidad/admin/update/correct/?cp="+cp;
+      }
+      else {
+        alert("El Codigo Postal no puede ser vacio");
+      }
+    });
+    $('#modProvincia').click(function () {
+      let id = prompt("Ingrese el ID de la Provincia");
+      if (id != '' && id != null) {
+        window.location.href = domain + "/provincia/admin/update/?id="+id;
+      }
+      else {
+        alert("El ID no puede ser vacio");
+      }
+    });
+   </script>
+
+
+</body>
+
+
+</html>
