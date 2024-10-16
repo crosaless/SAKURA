@@ -3,8 +3,13 @@
 Ecommerce a modo de trabajo integrador para la materia Seminario Integrador
 
 ## Temática del Market Place
+El ecommerce ofrecera ropa deportiva, y sera orientado a adolescentes y jovenes. El sistema incluye funcionalidades clave tanto para clientes como para administradores:
+- Autenticación de usuarios: Registro e inicio de sesión con diferentes roles y permisos.
+- Carrito de compras: Los usuarios pueden añadir productos al carrito y proceder con la compra.
+- Gestión de inventario: Herramienta para que el administrador controle el stock de refacciones.
+- Ventas y compras: Los administradores pueden gestionar las ventas, mientras que los clientes pueden realizar compras de forma sencilla.
 
-El ecommerce ofrecera ropa informal, y sera orientado a adolescentes y jovenes.
+
 
 ## Integrantes del grupo:
     - Marcio Palazzo
